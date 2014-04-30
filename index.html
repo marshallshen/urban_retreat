@@ -24,7 +24,7 @@
 
   <script type="text/x-handlebars" data-template-name="index">
     <ol class='breadcrumb'>
-      <li class='active'>Books</li>
+      <li class='active'>T-Shirt Designs</li>
     </ol>
 
     <div class='row'>
@@ -77,14 +77,14 @@
   <script type="text/x-handlebars" data-template-name="components/book-details">
     <div class='col-sm-3'>
       <a {{bind-attr href='book.url'}} target='_blank'>
-        <img {{bind-attr src='book.image'}} />
+        <img {{bind-attr src='book.image'}} width="150"/>
       </a>
       <p class='text-center rating'><strong>{{book.rating}}</strong>/5</p>
     </div>
 
     <div class='col-sm-9'>
       <h3>{{#link-to 'book' book}}{{book.title}}{{/link-to}}</h3>
-      <p class='text-muted'><em>Written by {{book.author}}</em></p>
+      <p class='text-muted'><em>Designed by {{book.author}}</em></p>
 
       <div>
         <p>{{book.review}}</p>
