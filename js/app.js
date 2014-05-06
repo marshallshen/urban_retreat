@@ -79,7 +79,7 @@ App.BookDetailsComponent = Ember.Component.extend({
 
 App.Book = DS.Model.extend({
   title: DS.attr(),
-  author: DS.attr(),
+  designer: DS.attr(),
   review: DS.attr(),
   rating: DS.attr('number'),
   amazon_id: DS.attr(),
@@ -96,43 +96,53 @@ App.Book = DS.Model.extend({
 App.Book.FIXTURES = [
   {
     id: 1,
-    title: 'The Groupon G',
-    author: 'Seymour A. Papert',
+    title: 'Striped Bowtie',
+    designer: 'Seymour A. Papert',
     review: 'Although this book focuses on the cognitive advantages to having children use technology from an early age, it is also an in depth look at how people can learn for themseves. As someone who was often distracted and bored at times during school, Mindstorms highlights some of the reasoning behind that feeling and what we can do as teachers to help minimize it.',
     rating: 5,
     amazon_id: '0465046746',
     genre: 3, 
-    image_src: 'assets/shirt_a.JPG'
+    image_src: 'assets/Bowties.png'
   },
   {
     id: 2,
-    title: 'Hyperion',
-    author: 'Dan Simmons',
+    title: 'Non Prescription Glasses',
+    designer: 'Dan Simmons',
     review: "Probably my favorite science fiction book (and series) I've ever read. Hyperion is written in a style similar to The Canterbury Tales, in which a series of stories are told by the main characters. Each story is a gem in itself, but alude to the larger storyline. The scope of the story is ambitious - spanning time, planets religion and love.",
     rating: 5,
     amazon_id: '0553283685',
     genre: 1,
-    image_src: 'assets/shirt_a.JPG'
+    image_src: 'assets/Glasses.JPG'
   },
   {
     id: 3,
-    title: "Jony Ive: The Genius Behind Apple's Greatest Products",
-    author: 'Leander Kahney',
+    title: "Leather Furred Hat",
+    designer: 'Leander Kahney',
     review: "Even though I respect Ive, I felt this biography only hit skin deep. It went over all the major events in his life, his passion for design, awards he achieved -- but that's really it. I dont't feel I know him anymore than before reading this.",
     rating: 2,
     amazon_id: '159184617X',
     genre: 3,
-    image_src: 'assets/shirt_a.JPG'
+    image_src: 'assets/Hats.JPEG'
   },
   {
     id: 4,
-    title: 'The Groupon "G"',
-    author: 'Aurtrel Black',
+    title: 'EALSAL Sweatshirt',
+    designer: 'Aurtrel Black',
     review: 'Inspired by the Groupon Cat',
     rating: 5,
     amozon_id: '0465046742',
     genre: 2,
-    image_src: 'assets/shirt_a.JPG'
+    image_src: 'assets/Sweatshirt.JPG'
+  },  
+  {
+    id: 5,
+    title: 'Leafy Watch',
+    designer: 'Aurtrel Black',
+    review: 'Inspired by the Groupon Cat',
+    rating: 5,
+    amozon_id: '0465046742',
+    genre: 2,
+    image_src: 'assets/Watch.JPG'
   },
 
 ];
@@ -145,16 +155,16 @@ App.Genre = DS.Model.extend({
 App.Genre.FIXTURES = [
   {
     id: 1,
-    name: 'Science Fiction',
+    name: 'Assessories',
     books: [2]
   },
   {
     id: 2,
-    name: 'Fiction'
+    name: 'Apparel'
   },
   {
     id: 3,
-    name: 'Non-Fiction',
+    name: 'Attire',
     books: [1,3]
   }
 ];
