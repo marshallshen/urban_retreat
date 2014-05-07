@@ -26,7 +26,7 @@
 
   <script type="text/x-handlebars" data-template-name="index">
     <ol class='breadcrumb'>
-      <li class='active'>T-Shirt Designs</li>
+      <li class='active'>Design site by Arthrel Black</li>
     </ol>
 
     <div class='row'>
@@ -34,7 +34,7 @@
         {{render 'books' books}}
       </div>
       <div class='col-sm-4'>
-        {{render 'genres' genres}}
+        {{render 'departments' departments}}
       </div>
     </div>
   </script>
@@ -49,16 +49,16 @@
     </ul>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="genres">
+  <script type="text/x-handlebars" data-template-name="departments">
     <h2>Departments</h2>
     <ul class='list-unstyled'>
       {{#each}}
-        <li>{{#link-to 'genre' this class='label label-primary'}}{{name}}{{/link-to}}</li>
+        <li>{{#link-to 'department' this class='label label-primary'}}{{name}}{{/link-to}}</li>
       {{/each}}
     </ul>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="genre">
+  <script type="text/x-handlebars" data-template-name="department">
     <ol class='breadcrumb'>
       <li>{{#link-to 'index'}}Books{{/link-to}}</li>
       <li class='active'>{{name}}</li>
@@ -92,7 +92,7 @@
         <p>{{book.review}}</p>
       </div>
 
-      <span>{{#link-to 'genre' book.genre class='label label-primary'}}{{book.genre.name}}{{/link-to}}</span>
+      <span>{{#link-to 'department' book.department class='label label-primary'}}{{book.department.name}}{{/link-to}}</span>
     </div>
   </script>
 
@@ -135,9 +135,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="book_genre" class="col-sm-2 control-label">Genre</label>
+          <label for="book_genre" class="col-sm-2 control-label">Department</label>
           <div class="col-sm-9">
-            {{view Ember.Select content=genres optionLabelPath="content.name" valueBinding="model.genre" class="form-control" id="book_genre"}}
+            {{view Ember.Select content=departments optionLabelPath="content.name" valueBinding="model.department" class="form-control" id="book_department"}}
           </div>
         </div>
 

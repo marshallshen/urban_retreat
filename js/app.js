@@ -3,7 +3,7 @@ App = Ember.Application.create();
 App.Router.map(function() {
   // put your routes here
   this.resource('book', { path: '/books/:book_id'});
-  this.resource('genre', { path: '/genres/:genre_id'});
+  this.resource('department', { path: '/departments/:department_id'});
   this.resource('reviews', function() {
     this.route('new');
   });
@@ -13,12 +13,12 @@ App.IndexRoute = Ember.Route.extend({
   model: function() {
     return Ember.RSVP.hash({
       books: this.store.findAll('book'),
-      genres: this.store.findAll('genre')
+      departments: this.store.findAll('department')
     });
   },
   setupController: function(controller, model) {
     controller.set('books', model.books);
-    controller.set('genres', model.genres);
+    controller.set('departments', model.departments);
   }
 });
 
@@ -27,21 +27,20 @@ App.IndexController = Ember.Controller.extend({});
 App.BooksController = Ember.ArrayController.extend({
   sortProperties: ['title']
 });
-App.GenresController = Ember.ArrayController.extend({
+App.DepartmentsController = Ember.ArrayController.extend({
   sortProperties: ['name']
 });
-
 
 App.ReviewsNewRoute = Ember.Route.extend({
   model: function() {
     return Ember.RSVP.hash({
       book: this.store.createRecord('book'),
-      genres: this.store.findAll('genre')
+      departments: this.store.findAll('department')
     });
   },
   setupController: function(controller, model) {
     controller.set('model', model.book);
-    controller.set('genres', model.genres);
+    controller.set('departments', model.departments);
   },
   actions: {
     willTransition: function(transition) {
@@ -83,7 +82,7 @@ App.Book = DS.Model.extend({
   review: DS.attr(),
   rating: DS.attr('number'),
   amazon_id: DS.attr(),
-  genre: DS.belongsTo('genre'),
+  department: DS.belongsTo('department'),
   image_src: DS.attr(),
   url: function() {
     return "http://www.amazon.com/gp/product/"+this.get('amazon_id')+"/adamfortuna-20";
@@ -101,7 +100,7 @@ App.Book.FIXTURES = [
     review: 'Although this book focuses on the cognitive advantages to having children use technology from an early age, it is also an in depth look at how people can learn for themseves. As someone who was often distracted and bored at times during school, Mindstorms highlights some of the reasoning behind that feeling and what we can do as teachers to help minimize it.',
     rating: 5,
     amazon_id: '0465046746',
-    genre: 3, 
+    department: 3, 
     image_src: 'assets/Bowties.png'
   },
   {
@@ -111,7 +110,7 @@ App.Book.FIXTURES = [
     review: "Probably my favorite science fiction book (and series) I've ever read. Hyperion is written in a style similar to The Canterbury Tales, in which a series of stories are told by the main characters. Each story is a gem in itself, but alude to the larger storyline. The scope of the story is ambitious - spanning time, planets religion and love.",
     rating: 5,
     amazon_id: '0553283685',
-    genre: 1,
+    department: 1,
     image_src: 'assets/Glasses.JPG'
   },
   {
@@ -121,7 +120,7 @@ App.Book.FIXTURES = [
     review: "Even though I respect Ive, I felt this biography only hit skin deep. It went over all the major events in his life, his passion for design, awards he achieved -- but that's really it. I dont't feel I know him anymore than before reading this.",
     rating: 2,
     amazon_id: '159184617X',
-    genre: 3,
+    department: 3,
     image_src: 'assets/Hats.JPEG'
   },
   {
@@ -131,7 +130,7 @@ App.Book.FIXTURES = [
     review: 'Inspired by the Groupon Cat',
     rating: 5,
     amozon_id: '0465046742',
-    genre: 2,
+    department: 2,
     image_src: 'assets/Sweatshirt.JPG'
   },  
   {
@@ -141,18 +140,18 @@ App.Book.FIXTURES = [
     review: 'Inspired by the Groupon Cat',
     rating: 5,
     amozon_id: '0465046742',
-    genre: 2,
+    department: 2,
     image_src: 'assets/Watch.JPG'
   },
 
 ];
 
-App.Genre = DS.Model.extend({
+App.Department = DS.Model.extend({
   name: DS.attr(),
   books: DS.hasMany('book', {async: true})
 });
 
-App.Genre.FIXTURES = [
+App.Department.FIXTURES = [
   {
     id: 1,
     name: 'Assessories',
