@@ -16,12 +16,20 @@
 
   <script type="text/x-handlebars" data-template-name="index">
     <ol class='breadcrumb'>
-      <li class='active'>Design site by Arthrel Black</li>
+      <li class='active'>Aurtrel Black Design Production</li>
+    </ol>
+
+    {{#link-to 'home'}} Get started {{/link-to}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="home">
+    <ol class='breadcrumb'>
+      <li class='active'>{{#link-to 'index'}} Aurtrel Black Design Production {{/link-to}}</li>
     </ol>
 
     <div class='row'>
       <div class='col-sm-8'>
-        {{render 'books' books}}
+        {{render 'wears' wears}}
       </div>
       <div class='col-sm-4'>
         {{render 'departments' departments}}
@@ -29,12 +37,14 @@
     </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="books">
+
+
+  <script type="text/x-handlebars" data-template-name="wears">
     <ul class="list-unstyled">
       {{#each}}
-        {{book-details book=this tag='li' class='row'}}
+        {{wear-details wear=this tag='li' class='row'}}
       {{else}}
-        <li>There are no books</li>
+        <li>There are no wears</li>
       {{/each}}
     </ul>
   </script>
@@ -50,39 +60,39 @@
 
   <script type="text/x-handlebars" data-template-name="department">
     <ol class='breadcrumb'>
-      <li>{{#link-to 'index'}}Books{{/link-to}}</li>
+      <li>{{#link-to 'index'}}wears{{/link-to}}</li>
       <li class='active'>{{name}}</li>
     </ol>
 
-    {{render 'books' books}}
+    {{render 'wears' wears}}
   </script>
 
-  <script type="text/x-handlebars" data-template-name="book">
+  <script type="text/x-handlebars" data-template-name="wear">
     <ol class='breadcrumb'>
-      <li>{{#link-to 'index'}}Books{{/link-to}}</li>
-      <li class='active'>{{title}}</li>
+      <li>{{#link-to 'home'}}Back to Urban Wears{{/link-to}}</li>
+      <li class='active'>{{name}}</li>
     </ol>
     
-    {{book-details book=this tag='div' class='row' rating="4"}}
+    {{wear-details wear=this tag='div' class='row' rating="4"}}
   </script>
 
-  <script type="text/x-handlebars" data-template-name="components/book-details">
+  <script type="text/x-handlebars" data-template-name="components/wear-details">
     <div class='col-sm-3'>
-      <a {{bind-attr href='book.url'}} target='_blank'>
-        <img {{bind-attr src='book.image'}} width="150"/>
+      <a {{bind-attr href='wear.url'}} target='_blank'>
+        <img {{bind-attr src='wear.image'}} width="150"/>
       </a>
-      <p class='text-center rating'><strong>{{book.rating}}</strong>/5</p>
+      <p class='text-center rating'><strong>{{wear.rating}}</strong>/5</p>
     </div>
 
     <div class='col-sm-9'>
-      <h3>{{#link-to 'book' book}}{{book.title}}{{/link-to}}</h3>
-      <p class='text-muted'><em>Designed by {{book.designer}}</em></p>
+      <h3>{{#link-to 'wear' wear}}{{wear.name}}{{/link-to}}</h3>
+      <p class='text-muted'><em>Designed by {{wear.designer}}</em></p>
 
       <div>
-        <p>{{book.review}}</p>
+        <p>{{wear.description}}</p>
       </div>
 
-      <span>{{#link-to 'department' book.department class='label label-primary'}}{{book.department.name}}{{/link-to}}</span>
+      <span>{{#link-to 'department' wear.department class='label label-primary'}}{{wear.department.name}}{{/link-to}}</span>
     </div>
   </script>
 
