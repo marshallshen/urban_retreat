@@ -9,17 +9,30 @@
 <body>
   <script type="text/x-handlebars" data-template-name="application">
     <div class="container">
-      <h1>Urban Retreat</h1>
       {{outlet}}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <ol class='breadcrumb'>
-      <li class='active'>Aurtrel Black Design Production</li>
-    </ol>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="inner cover">
+            <h1 class="cover-heading">Urban Retreat</h1>
+            <p class="lead">What is the core value of Urban Retreat, in five words?</p>
+            <p class="lead">
+              {{#link-to 'home' class="btn btn-lg btn-default"}} Start Shopping {{/link-to}}
+            </p>
+          </div>
 
-    {{#link-to 'home'}} Get started {{/link-to}}
+          <div class="mastfoot">
+            <div class="inner">
+              <p> To all the fun memories @ Groupon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="home">
@@ -36,8 +49,6 @@
       </div>
     </div>
   </script>
-
-
 
   <script type="text/x-handlebars" data-template-name="wears">
     <ul class="list-unstyled">
