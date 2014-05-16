@@ -1,4 +1,6 @@
 App = Ember.Application.create();
+// Set background image
+$.backstretch("assets/Homepage.jpg");
 
 App.Router.map(function() {
   this.route('home');

@@ -318,6 +318,8 @@ img {
 }
 .img-rounded {
   border-radius: 6px;
+  max-width: 200px;
+  max-height: auto;
 }
 .img-thumbnail {
   display: inline-block;

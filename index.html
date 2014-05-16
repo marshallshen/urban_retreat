@@ -5,6 +5,7 @@
   <title>Urban Retreat</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cover.css">
 </head>
 <body>
   <script type="text/x-handlebars" data-template-name="application">
@@ -18,7 +19,7 @@
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="inner cover">
-            <h1 class="cover-heading">Urban Retreat</h1>
+            <img src="assets/Logo.jpg" alt="Logo" class="img-rounded">
             <p class="lead">What is the core value of Urban Retreat, in five words?</p>
             <p class="lead">
               {{#link-to 'home' class="btn btn-lg btn-default"}} Start Shopping {{/link-to}}
@@ -90,7 +91,7 @@
   <script type="text/x-handlebars" data-template-name="components/wear-details">
     <div class='col-sm-3'>
       <a {{bind-attr href='wear.url'}} target='_blank'>
-        <img {{bind-attr src='wear.image'}} width="150"/>
+        <img {{bind-attr src='wear.image'}} class='img-circle' width="150"/>
       </a>
       <p class='text-center rating'><strong>{{wear.rating}}</strong>/5</p>
     </div>
@@ -113,6 +114,7 @@
   <script src="js/libs/ember-data.js"></script>
   <script src="js/libs/bootstrap.min.js"></script>
   <script src="js/libs/docs.min.js"></script>
+  <script src="js/libs/backstretch.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
