@@ -15,30 +15,97 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="inner cover">
-            <img src="assets/Logo.jpg" alt="Logo" class="img-rounded">
-            <p class="lead">What is the core value of Urban Retreat, in five words?</p>
-            <p class="lead">
-              {{#link-to 'home' class="btn btn-lg btn-default"}} Start Shopping {{/link-to}}
-            </p>
-          </div>
+    <link rel="stylesheet" href="css/grayscale.css">
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p> To all the fun memories @ Groupon</p>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                </a>
             </div>
-          </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
+    </nav>
+
+    <section class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <img src="assets/MedianLogo.png">
+                        <br><br><br><br><br><br><br><br>
+                        <p>{{#link-to 'home' class="btn btn-lg btn-default"}} Start Shopping {{/link-to}}</p>
+                        <br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>About Designer</h2>
+                    <img src="assets/AboutUs.png", width="60%">
+                    <p>Aurtrel Black is a fashion designer whose focus is urban teen apparel and accessories.  His fashion inspirations include himself, Kobe Mapp, Mr. Voorhees, Randy Hall, Aneshia Black, and Nike. Aurtrel studies at National Teachers Academy, and will be attending The Chicago High School for the Arts in the fall to pursue Creative Writing. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+
+  </script>
+  <script type="text/x-handlebars" data-template-name="home">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/SmallLogo.png" height="20"></a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
-  </script>
 
-  <script type="text/x-handlebars" data-template-name="home">
     <ol class='breadcrumb'>
-      <li class='active'>{{#link-to 'index'}} Aurtrel Black Design Production {{/link-to}}</li>
+      <li class='active'>{{#link-to 'index'}} Urban Retreat {{/link-to}}</li>
     </ol>
 
     <div class='row'>
@@ -52,6 +119,30 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="wears">
+    <br><br>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/SmallLogo.png" height="20"></a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
     <ul class="list-unstyled">
       {{#each}}
         {{wear-details wear=this tag='li' class='row'}}
@@ -62,7 +153,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="departments">
-    <h2>Departments</h2>
+    <h2>Styles</h2>
     <ul class='list-unstyled'>
       {{#each}}
         <li>{{#link-to 'department' this class='label label-primary'}}{{name}}{{/link-to}}</li>
@@ -72,7 +163,7 @@
 
   <script type="text/x-handlebars" data-template-name="department">
     <ol class='breadcrumb'>
-      <li>{{#link-to 'index'}}wears{{/link-to}}</li>
+      <li>{{#link-to 'home'}}Back to Urban Wears{{/link-to}}</li>
       <li class='active'>{{name}}</li>
     </ol>
 
@@ -80,6 +171,29 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="wear">
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/SmallLogo.png" height="20"></a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
     <ol class='breadcrumb'>
       <li>{{#link-to 'home'}}Back to Urban Wears{{/link-to}}</li>
       <li class='active'>{{name}}</li>
@@ -89,9 +203,31 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="components/wear-details">
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/SmallLogo.png" height="20"></a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
     <div class='col-sm-3'>
       <a {{bind-attr href='wear.url'}} target='_blank'>
-        <img {{bind-attr src='wear.image'}} class='img-circle' width="150"/>
+        <img {{bind-attr src='wear.image'}} class='img-rounded' width="150"/>
       </a>
       <p class='text-center rating'><strong>{{wear.rating}}</strong>/5</p>
     </div>
